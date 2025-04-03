@@ -4087,8 +4087,11 @@ export class WeatherComponent {
   constructor(private weatherService: WeatherService,private favoritesService: FavoritesService) {}
   addToFavorites(): void {
     if (this.city.trim() !== '') {
-      this.favoritesService.addFavorite(this.city);
-      alert(`${this.city} added to favorites!`);
+      this.favoritesService.addFavorite(this.city.trim());
+      alert(`${this.city.trim()} added to favorites!`);
+      this.city = ''; // Clear the input after adding
+    } else {
+      alert('Please enter a city name!');
     }
   }
 
