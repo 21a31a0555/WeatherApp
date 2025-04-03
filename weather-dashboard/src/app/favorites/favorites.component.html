@@ -1,0 +1,18 @@
+<div class="favorites-container p-6 rounded-2xl w-full max-w-md mx-auto
+            bg-white/10 backdrop-blur-sm border border-white/20">
+  <h2 class="text-xl font-semibold text-white-800 mb-4">Favorites</h2>
+  <ul *ngIf="favorites.length > 0; else noFavorites" class="space-y-2">
+    <li *ngFor="let city of favorites"
+        class="flex items-center justify-between p-3 bg-white/5 hover:bg-white/20
+              rounded-lg transition duration-200">
+      <span class="text-gray-800 font-medium">{{ city }}</span>
+      <button (click)="removeFavorite(city)"
+              class="text-red-400 hover:text-red-600 transition duration-200">
+        ❌
+      </button>
+    </li>
+  </ul>
+  <ng-template #noFavorites>
+    <p class="text-white-500/80 text-sm text-center">No favorite cities added yet.</p>
+  </ng-template>
+</div>
